@@ -1,0 +1,1 @@
+docker build -t augment-agent-boc:latest -f Dockerfile.boc .

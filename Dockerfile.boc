@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+COPY . /augment-agent
+WORKDIR /augment-agent
+
+ENV UV_DEFAULT_INDEX=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+ENV UV_PYTHON_INSTALL_MIRROR=https://ghfast.top/https://github.com/astral-sh/python-build-standalone/releases/download
+
+RUN uv sync
